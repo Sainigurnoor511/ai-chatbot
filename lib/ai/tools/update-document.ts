@@ -10,7 +10,7 @@ import { Model } from '../models';
 import { Session } from 'next-auth';
 import { z } from 'zod';
 import { getDocumentById, saveDocument } from '@/lib/db/queries';
-import { customModel, imageGenerationModel } from '..';
+import { customModel } from '..';
 import { updateDocumentPrompt } from '../prompts';
 
 interface UpdateDocumentProps {
@@ -109,7 +109,8 @@ export const updateDocument = ({
         }
 
         dataStream.writeData({ type: 'finish', content: '' });
-      } else if (document.kind === 'image') {
+      } 
+      else if (document.kind === 'image') {
         const { image } = await experimental_generateImage({
           model: imageGenerationModel,
           prompt: description,

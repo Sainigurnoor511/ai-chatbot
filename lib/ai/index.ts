@@ -1,13 +1,16 @@
-import { openai } from '@ai-sdk/openai';
+// TODO: Implement your own AI-SDK model here
+
+// import { openai } from '@ai-sdk/openai';
+import { groq } from '@ai-sdk/groq';
 import { experimental_wrapLanguageModel as wrapLanguageModel } from 'ai';
 
 import { customMiddleware } from './custom-middleware';
 
 export const customModel = (apiIdentifier: string) => {
   return wrapLanguageModel({
-    model: openai(apiIdentifier),
+    model: groq(apiIdentifier),
     middleware: customMiddleware,
   });
 };
 
-export const imageGenerationModel = openai.image('dall-e-3');
+// export const imageGenerationModel = openai.image('dall-e-3');

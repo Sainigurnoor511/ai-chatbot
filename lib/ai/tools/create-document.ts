@@ -8,7 +8,7 @@ import {
   tool,
 } from 'ai';
 import { z } from 'zod';
-import { customModel, imageGenerationModel } from '..';
+import { customModel } from '..';
 import { codePrompt } from '../prompts';
 import { saveDocument } from '@/lib/db/queries';
 import { Session } from 'next-auth';
